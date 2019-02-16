@@ -61,5 +61,4 @@ Output:
 	-It prints the first five rows in the database with a thorn character at the end.
 
 -Bugs:
-	1. This version only is able to handle 2 lines in a singel cell.one songle case of three pahese was hardcoded.
-	2. We tried to install and run the code but were unsuccessful in several cases. 
+	1. This version only is able to handle 2 lines in a singel cell. All cases that with .
