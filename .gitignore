@@ -1,0 +1,9 @@
+/*.egg-info
+__pycache__/
+*.pdf
+wget-log
+*.db
+*.py.swn
+*.py.swo
+*.py.swp
+

@@ -1,0 +1,65 @@
+Readme for 'Activity Police Report Extraction'
+
+Author: Umesh Sai Gurram
+Author Email: umeshsai34@ou.edu
+Packages used: urllib, numpy, PyPDF2, nltk, re, sqlite3
+
+Setup Instructions:
+
+
+Description:
+This package is used to scrape the data from the Norman Police Department's daily activity
+website. The package has one main function. Given the url of the pdf,the package fetches the
+given pdf, extracts the first page, stores it in a sqlite database and prints the first 
+5 rows of the data.
+
+Most of the fucntionality of the package is done by the 'normanpd.py' file. It has five functions 
+that are called by the main() fucntion. They are as follows:
+1)fetchincidents(url)
+-Input : 
+	url : We need to give the url of teh pdf that we want to ectract the data from.
+-Output:
+	No output
+-Fucntionality:
+	.fetchincidents() uses the urllib.request to fetch the pdf file and download it.
+	.This file is written to doc.pdf for storage and extraction by the next fucntion.
+
+2)extractincidents()
+-Input:
+	None
+-Output:
+	Returns a list of rows extracted from the pdf file that can be saved using a variable.
+-Fucntionality:	
+	This has various stages of extraction.
+	-First we read the data written into the doc.pdf file by the fetchincidents() function.
+	-We use the pdfReader() fuctionf from the PyPDF2 pacakge to extract the data from pdf formatted doc.pdf files contents. This fucntion extracts only the first page.
+	- Next, we used the splitlines() to split based on the '\n' present in the string 
+obtainied by the pypdf2 reader. This gives us the phrases in each cell except when there is
+more than one line in the cell. These are given as next string in the returned list.
+	- In the next loop, each word/phrase is appended to a 'n' th list (where n is the row)
+inside a list called 'page_list' unstil a phrase is reached whose last character is ';'. This is used to identify the end of each row. The last phrases last character i.e. ';' is removed and 
+appended to the 'n'th list.
+	-As the heading/columns title row does not have a ';' at the end, the first list in
+page_list also consists of teh header. We remove this.
+	-Next, we handle the problem of more than one line in a cell.We start looping through all the phrases present in each of the rows and append them to a list called 'row'. First we identified a way to distinguish such pahrases. They contained a space or a hyphen at the end. After identifying such phrases we do not append that phrase and raise a flag. If the flag is treu in the next loop we attach the previous phrase and then append to the list. To properly do this we have another boolean to indicate whether the full phrase was added to the list called 'added'. We do this to all the rows.
+	- Next ,we take care of the missing values. We look at the various patterns where missing vlaues occur. Three such patterns were found. One was where the pin was missing. Next one is where state is missing. The other is where the person is homeless and Adress ,state and pin are missing.
+	-This implementation only handles two phrass ins the same cell.If more occur, engrams are formed. Threre was only one isntavce of three lines in the same cell repeatedly. So this was hardcoded and fixed.
+
+3)createdb():
+Input:
+	-createdb creates table called arrests in using sqlite3 package if it laredy does not exist.No input required.
+Output: None
+
+4)populatedb()
+INput :
+	-pouplatedb() inserts all the rows into the while taking the lists of rows into the arrestsdb.
+
+5)status():
+Input:
+	-input is the path to the local db given in the main.
+Output:
+	-It prints the first five rows in the database with a thorn character at the end.
+
+-Bugs:
+	1. This version only is able to handle 2 lines in a singel cell.one songle case of three pahese was hardcoded.
+	2. We tried to install and run the code but were unsuccessful in several cases. 
