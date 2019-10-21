@@ -44,7 +44,7 @@ language-selector==0.1
 lxml==4.0.0
 MarkupSafe==1.0
 matplotlib==2.0.0
-nltk==3.2.4
+nltk==3.4.5
 nose==1.3.7
 numexpr==2.6.2
 numpy==1.14.0
