@@ -16,7 +16,7 @@ click-default-group==1.2
 cloud-init==17.1
 command-not-found==0.3
 configobj==5.0.6
-cryptography==1.9
+cryptography==3.2
 cycler==0.10.0
 datasette==0.14
 decorator==4.1.1
