@@ -58,7 +58,7 @@ pickleshare==0.7.4
 Pillow==8.1.1
 pluggy==0.6.0
 prompt-toolkit==1.0.14
-py==1.5.2
+py==1.10.0
 pycrypto==2.6.1
 Pygments==2.2.0
 pygobject==3.24.1
