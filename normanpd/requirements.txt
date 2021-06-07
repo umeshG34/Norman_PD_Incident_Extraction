@@ -18,7 +18,7 @@ command-not-found==0.3
 configobj==5.0.6
 cryptography==1.9
 cycler==0.10.0
-datasette==0.14
+datasette==0.56.1
 decorator==4.1.1
 distro-info==0.17
 docutils==0.14
