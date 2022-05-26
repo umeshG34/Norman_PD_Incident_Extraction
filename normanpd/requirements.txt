@@ -93,7 +93,7 @@ tables==3.3.0
 tornado==4.5.3
 traitlets==4.3.2
 ufw==0.35
-ujson==1.35
+ujson==5.2.0
 unattended-upgrades==0.1
 urllib3==1.21.1
 uvloop==0.9.1
