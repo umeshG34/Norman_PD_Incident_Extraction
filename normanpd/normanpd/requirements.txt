@@ -34,7 +34,7 @@ imagesize==0.7.1
 ipython==5.1.0
 ipython-genutils==0.2.0
 Jinja2==2.10
-joblib==0.10.4.dev0
+joblib==1.2.0
 jsonpatch==1.16
 jsonpointer==1.10
 jsonschema==2.5.1
